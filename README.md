@@ -1,6 +1,7 @@
 # resdroid
 
 [![Build Status](https://drone.io/github.com/mcatominey/resdroid/status.png)](https://drone.io/github.com/mcatominey/resdroid/latest)
+[![Coverage Status](https://coveralls.io/repos/mcatominey/resdroid/badge.png)](https://coveralls.io/r/mcatominey/resdroid)
 
 Resdroid is a tool for getting an overview of the res directory within an android project.
 
