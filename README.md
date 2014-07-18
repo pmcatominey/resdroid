@@ -1,5 +1,7 @@
 # resdroid
 
+[![Build Status](https://drone.io/github.com/mcatominey/resdroid/status.png)](https://drone.io/github.com/mcatominey/resdroid/latest)
+
 Resdroid is a tool for getting an overview of the res directory within an android project.
 
 I plan on adding more reports to it but currently it only generates an overview of Bitmap and 9-Patch drawables.
