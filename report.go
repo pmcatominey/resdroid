@@ -43,7 +43,7 @@ const drawableReportTemplate = `
 			<td>
 				{{ if .HasDrawable $name }}
 				{{ $drawable := .Drawable $name }}
-					<img src="file://{{ $drawable.Path }}" />
+					<img src="data:image/*;base64,{{ $drawable.Base64 }}" />
 				{{ else }}
 					<span class="missing">Missing</span>
 				{{ end }}

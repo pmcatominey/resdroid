@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -89,9 +90,10 @@ const (
 
 // A drawable file
 type Drawable struct {
-	Name string
-	Path string
-	Type DrawableType
+	Name   string
+	Path   string
+	Type   DrawableType
+	Base64 string
 }
 
 // Create Drawable from file at path
@@ -101,10 +103,23 @@ func NewDrawable(path string) (*Drawable, error) {
 		return nil, err
 	}
 
+	t := drawableType(fileInfo.Name())
+
+	var b64 string
+	if t == Bitmap || t == NinePatch {
+		// Generate Base64 of image
+		if data, err := ioutil.ReadFile(path); err == nil {
+			b64 = base64.StdEncoding.EncodeToString(data)
+		} else {
+			return nil, err
+		}
+	}
+
 	return &Drawable{
 		fileInfo.Name(),
 		path,
-		drawableType(fileInfo.Name()),
+		t,
+		b64,
 	}, nil
 }
 
